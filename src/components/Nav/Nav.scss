@@ -1,0 +1,47 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  .logo {
+    cursor: pointer;
+  }
+
+  .networks {
+    gap: 15px;
+
+    ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      display: inline-block;
+      border-radius: 50%;
+      font-size: 26px;
+    }
+
+    button {
+      background-color: none;
+      border: 1px solid white;
+    }
+  }
+  .links ul,
+  .networks ul {
+    display: flex;
+    gap: 25px;
+
+    li {
+      font-weight: 600;
+    }
+
+    a {
+      color: rgb(193, 193, 193);
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
