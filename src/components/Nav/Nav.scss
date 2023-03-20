@@ -1,8 +1,12 @@
+@use "../../assets/styles/variables" as var;
+
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 60px;
+  height: 70px;
+  padding: 0 5%;
+
   .logo {
     cursor: pointer;
   }
@@ -17,20 +21,36 @@ nav {
     }
 
     a {
-      display: inline-block;
+      display: inline-flex;
       border-radius: 50%;
       font-size: 26px;
+      padding: 6px;
     }
 
-    button {
-      background-color: none;
+    .contact {
+      background-color: var.$mainColor;
       border: 1px solid white;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 10px;
+      padding: 12px 15px;
+
+      &:hover {
+        color: var.$mainColor;
+        border: 1px solid white;
+        background-color: white;
+      }
     }
   }
+  .mob{
+    display: none
+  }
+
   .links ul,
   .networks ul {
     display: flex;
-    gap: 25px;
+    gap: 40px;
 
     li {
       font-weight: 600;
@@ -42,6 +62,77 @@ nav {
       &:hover {
         color: white;
       }
+    }
+  }
+
+  .networks ul {
+    gap: 10px;
+  }
+
+  .hammenu {
+    display: none;
+
+    svg {
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between;
+
+    .hammenu {
+      display: block !important;
+    }
+
+    .networks {
+      display: none;
+    }
+
+    .hide{
+      position: absolute;
+      right: -500px;
+    }
+
+    .links .active {
+      background-color: white;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      gap: 0;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      box-shadow: rgba(134, 133, 133, 0.708) 0px 2px 4px 0px, rgba(255, 255, 255, 0.128) 0px 2px 6px 0px;
+      li {
+        width: 100%;
+      }
+      a {
+        width: inherit;
+        padding: 20px 15px;
+        display: inline-block;
+        color: var.$mainColor;
+        text-align: center;
+        &:hover {
+          color: white;
+          background-color: var.$mainColor;
+        }
+      }
+    }
+    .mob{
+      display: flex;
+      flex-direction: column;
+      a{
+        display: flex !important;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .contact{
+      font-weight: 700;
     }
   }
 }
