@@ -1,82 +1,93 @@
 @use "../../assets/styles/variables" as var;
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 70px;
-  padding: 0 5%;
+header {
+  transition: all 0.7s linear;
 
-  .logo {
-    cursor: pointer;
-  }
-
-  .networks {
-    gap: 15px;
-
-    ul li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    a {
-      display: inline-flex;
-      border-radius: 50%;
-      font-size: 26px;
-      padding: 6px;
-    }
-
-    .contact {
-      background-color: var.$mainColor;
-      border: 1px solid white;
-      color: white;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 10px;
-      padding: 12px 15px;
-
-      &:hover {
-        color: var.$mainColor;
-        border: 1px solid white;
-        background-color: white;
-      }
-    }
-  }
-  .mob{
-    display: none
-  }
-
-  .links ul,
-  .networks ul {
+  nav {
     display: flex;
-    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 10%;
 
-    li {
-      font-weight: 600;
-    }
-
-    a {
-      color: rgb(193, 193, 193);
-
-      &:hover {
-        color: white;
-      }
-    }
-  }
-
-  .networks ul {
-    gap: 10px;
-  }
-
-  .hammenu {
-    display: none;
-
-    svg {
-      font-size: 24px;
+    .logo {
       cursor: pointer;
     }
+
+    .networks {
+      gap: 15px;
+
+      ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      a {
+        display: inline-flex;
+        border-radius: 50%;
+        font-size: 26px;
+        padding: 6px;
+      }
+
+      .contact {
+        background-color: var.$mainColor;
+        border: 1px solid white;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 12px 15px;
+
+        &:hover {
+          color: var.$mainColor;
+          border: 1px solid white;
+          background-color: white;
+        }
+      }
+    }
+    .mob {
+      display: none;
+    }
+
+    .links ul,
+    .networks ul {
+      display: flex;
+      gap: 40px;
+
+      li {
+        font-weight: 600;
+      }
+
+      a {
+        color: rgb(193, 193, 193);
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+    .networks ul {
+      gap: 10px;
+    }
+
+    .hammenu {
+      display: none;
+
+      svg {
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
   }
+}
+.fixed {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-color: var.$mainColor;
+  top: 0;
 }
 
 @media (max-width: 768px) {
@@ -91,7 +102,7 @@ nav {
       display: none;
     }
 
-    .hide{
+    .hide {
       position: absolute;
       right: -500px;
     }
@@ -102,10 +113,12 @@ nav {
       justify-content: center;
       position: absolute;
       gap: 0;
+      z-index: 999;
       top: 60px;
       right: 0;
       width: 200px;
-      box-shadow: rgba(134, 133, 133, 0.708) 0px 2px 4px 0px, rgba(255, 255, 255, 0.128) 0px 2px 6px 0px;
+      box-shadow: rgba(134, 133, 133, 0.708) 0px 2px 4px 0px,
+        rgba(255, 255, 255, 0.128) 0px 2px 6px 0px;
       li {
         width: 100%;
       }
@@ -121,17 +134,17 @@ nav {
         }
       }
     }
-    .mob{
+    .mob {
       display: flex;
       flex-direction: column;
-      a{
+      a {
         display: flex !important;
         gap: 10px;
         justify-content: center;
         align-items: center;
       }
     }
-    .contact{
+    .contact {
       font-weight: 700;
     }
   }

@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Nav.scss";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 
 const Nav = () => {
+  const header = useRef();
   const [hamOpened, setHamOpened] = useState(false);
+
+  const changeNavbarColor = () => {
+    window.scrollY > 1
+      ? header.current.classList.add("fixed")
+      : header.current.classList.remove("fixed");
+  };
+  window.addEventListener("scroll", changeNavbarColor);
 
   return (
     <div>
-      <header>
+      <header ref={header}>
         <nav>
           <div className="logo">
             <h1>Logo</h1>
@@ -16,17 +25,21 @@ const Nav = () => {
           <div className="links">
             <ul className={hamOpened ? "active" : "hide"}>
               <li>
-                <a href="/">Home</a>
+                <AnchorLink href="#about">About</AnchorLink>
               </li>
               <li>
-                <a href="/">Skills</a>
+                <AnchorLink href="#skills">Skills</AnchorLink>
               </li>
               <li>
-                <a href="/">Projects</a>
+                <AnchorLink href="#projects">Projects</AnchorLink>
               </li>
               <div className="mob">
                 <li>
-                  <a href="https://github.com/elmirguluzade" target={"_blank"} rel={"noreferrer"}>
+                  <a
+                    href="https://github.com/elmirguluzade"
+                    target={"_blank"}
+                    rel={"noreferrer"}
+                  >
                     <AiFillGithub />
                     <p>Github</p>
                   </a>
