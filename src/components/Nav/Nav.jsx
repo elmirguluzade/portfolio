@@ -19,14 +19,15 @@ const Nav = () => {
 
   useEffect(() => {
     const burgerClick = (e) => {
-      if(menu.current.className === "active" && e.target.tagName !== "svg") {
-        menu.current.classList.add('hide')
-        setHamOpened(false)
-      }
-    }
-    window.addEventListener('click', burgerClick)
-  }, [menu])
-
+      setTimeout(() => {
+        if (menu.current.className === "active" && e.target.tagName !== "svg") {
+          menu.current.classList.add("hide");
+          setHamOpened(false);
+        }
+      }, 300);
+    };
+    window.addEventListener("click", burgerClick);
+  }, [menu]);
 
   return (
     <div>
@@ -91,7 +92,7 @@ const Nav = () => {
             </AnchorLink>
           </div>
           <div className="hammenu" onClick={() => setHamOpened(!hamOpened)}>
-            {!hamOpened ? <RxHamburgerMenu/> : <RxCross1/>}
+            {!hamOpened ? <RxHamburgerMenu /> : <RxCross1 />}
           </div>
         </nav>
       </header>
