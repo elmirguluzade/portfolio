@@ -13,7 +13,6 @@ const Contact = () => {
     message: "",
   };
 
-  const [btnText, setBtnText] = useState("Send");
   const [formDetails, setFormDetails] = useState(formInitializeDetails);
 
   const formUpdated = (field, value) => {
@@ -45,8 +44,7 @@ const Contact = () => {
     }
     axios
       .post("http://localhost:4000/contact", formDetails)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         toast.success("Message sent. I will answer as soon as possible", {
           position: "top-right",
           autoClose: 800,
@@ -57,7 +55,19 @@ const Contact = () => {
           progress: undefined,
           theme: "light",
         });
-      }).catch(err => console.log(err))
+      })
+      .catch(() => {
+        toast.error("Error occured. Please try again.", {
+          position: "top-right",
+          autoClose: 800,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
   return (
@@ -99,7 +109,7 @@ const Contact = () => {
               placeholder="Message"
             />
           </div>
-          <button type="submit">{btnText}</button>
+          <button type="submit">Send</button>
         </form>
       </div>
       <ToastContainer />

@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-require('dotenv').config({path: './config.env'})
+require("dotenv").config({ path: "./config.env" });
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -14,11 +14,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 app.post("/contact", (req, res) => {
   const { name, email, message, phone } = req.body;
   const mailOptions = {
-    from: process.env.MAIL,
+    from: {
+      name: "Portfolio Visitor",
+      address: 'quluzadeelmir646@gmail.com'
+    },
     to: "elmir.quluzade627@gmail.com",
     subject: `Message from portfolio`,
     html: `<p><b>Name: ${name}</b></p>
@@ -36,9 +38,9 @@ app.post("/contact", (req, res) => {
   });
 
   res.json({
-    status: true, 
-    message: "Email Sent"
-  })
+    status: true,
+    message: "Email Sent",
+  });
 });
 
 const PORT = 4000;

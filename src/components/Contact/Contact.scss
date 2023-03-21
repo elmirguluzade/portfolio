@@ -42,6 +42,7 @@
       padding-top: 10px !important;
       padding-bottom: 10px !important;
       min-height: 100px !important;
+      resize: none;
 
       &::-webkit-scrollbar {
         display: none;
@@ -82,7 +83,8 @@
   .contact-img {
     display: none;
   }
+
   form {
-    width: 100%;
+    width: 100% !important;
   }
 }
