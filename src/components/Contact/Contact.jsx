@@ -13,6 +13,14 @@ const Contact = () => {
     message: "",
   });
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   const formUpdated = (field, value) => {
     setFormDetails({
       ...formDetails,
@@ -22,12 +30,7 @@ const Contact = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    if (
-      !formDetails.email ||
-      !formDetails.message ||
-      !formDetails.phone ||
-      !formDetails.name
-    ) {
+    if (!formDetails.email || !formDetails.message || !formDetails.phone || !formDetails.name) {
       toast.warning("Enter all fields", {
         position: "top-right",
         autoClose: 800,
@@ -39,6 +42,20 @@ const Contact = () => {
         theme: "light",
       });
       return;
+    }
+    const isValid = validateEmail(formDetails.email)
+    if(!isValid) {
+      toast.error("Email isn't correct form", {
+        position: "top-right",
+        autoClose: 800,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return
     }
     axios
       .post("http://localhost:5000/contact", formDetails)
