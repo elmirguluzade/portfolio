@@ -21,7 +21,9 @@ const Projects = () => {
       </p>
       <Carousel infinite={true} responsive={responsive}>
         <div className="project">
-          <img src={project1} alt="project1" />
+          <div className="project-photo">
+            <img src={project1} alt="project1" />
+          </div>
           <div>
             <p>
               This is the blog app which allows user to create and edit blog.
@@ -31,7 +33,11 @@ const Projects = () => {
             </p>
             <p>
               Check source code:{" "}
-              <a href="https://github.com/elmirguluzade/blog-mern-project" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/elmirguluzade/blog-mern-project"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Source Code
               </a>
             </p>

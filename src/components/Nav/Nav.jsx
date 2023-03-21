@@ -50,9 +50,7 @@ const Nav = () => {
                     <p>Linkedin</p>
                   </a>
                 </li>
-                <a href="/" className="contact">
-                  Contact me
-                </a>
+                <AnchorLink href="#contact" className="contact">Contact me</AnchorLink>
               </div>
             </ul>
           </div>
@@ -73,9 +71,7 @@ const Nav = () => {
                 </a>
               </li>
             </ul>
-            <a href="/" className="contact">
-              Contact me
-            </a>
+            <AnchorLink href="#contact" className="contact">Contact me</AnchorLink>
           </div>
           <div className="hammenu" onClick={() => setHamOpened(!hamOpened)}>
             {!hamOpened ? <RxHamburgerMenu /> : <RxCross1 />}

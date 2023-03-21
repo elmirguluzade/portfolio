@@ -114,7 +114,7 @@ header {
       position: absolute;
       gap: 0;
       z-index: 999;
-      top: 60px;
+      top: 70px;
       right: 0;
       width: 200px;
       box-shadow: rgba(134, 133, 133, 0.708) 0px 2px 4px 0px,
@@ -135,7 +135,7 @@ header {
       }
     }
     .mob {
-      display: flex;
+      display: flex !important;
       flex-direction: column;
       a {
         display: flex !important;

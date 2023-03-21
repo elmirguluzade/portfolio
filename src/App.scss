@@ -51,3 +51,12 @@ a{
 .header{
   background-image: url("../src/assets/img/banner-bg.png");
 }
+
+.react-multiple-carousel__arrow--left {
+  left: 0 !important;
+  z-index: 900 !important;
+}
+.react-multiple-carousel__arrow--right{
+  right: 0 !important;
+  z-index: 900 !important;
+} 
