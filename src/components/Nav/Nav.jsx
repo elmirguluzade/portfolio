@@ -1,12 +1,14 @@
-import React, { useState, useRef } from "react";
-import "./Nav.scss";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useRef, useEffect } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import "./Nav.scss";
 
 const Nav = () => {
   const header = useRef();
   const [hamOpened, setHamOpened] = useState(false);
+  const menu = useRef();
 
   const changeNavbarColor = () => {
     window.scrollY > 1
@@ -14,6 +16,17 @@ const Nav = () => {
       : header.current.classList.remove("fixed");
   };
   window.addEventListener("scroll", changeNavbarColor);
+
+  useEffect(() => {
+    const burgerClick = (e) => {
+      if(menu.current.className === "active" && e.target.tagName !== "svg") {
+        menu.current.classList.add('hide')
+        setHamOpened(false)
+      }
+    }
+    window.addEventListener('click', burgerClick)
+  }, [menu])
+
 
   return (
     <div>
@@ -23,7 +36,7 @@ const Nav = () => {
             <h1>Logo</h1>
           </div>
           <div className="links">
-            <ul className={hamOpened ? "active" : "hide"}>
+            <ul className={hamOpened ? "active" : "hide"} ref={menu}>
               <li>
                 <AnchorLink href="#about">About</AnchorLink>
               </li>
@@ -50,7 +63,9 @@ const Nav = () => {
                     <p>Linkedin</p>
                   </a>
                 </li>
-                <AnchorLink href="#contact" className="contact">Contact me</AnchorLink>
+                <AnchorLink href="#contact" className="contact">
+                  Contact me
+                </AnchorLink>
               </div>
             </ul>
           </div>
@@ -71,10 +86,12 @@ const Nav = () => {
                 </a>
               </li>
             </ul>
-            <AnchorLink href="#contact" className="contact">Contact me</AnchorLink>
+            <AnchorLink href="#contact" className="contact">
+              Contact me
+            </AnchorLink>
           </div>
           <div className="hammenu" onClick={() => setHamOpened(!hamOpened)}>
-            {!hamOpened ? <RxHamburgerMenu /> : <RxCross1 />}
+            {!hamOpened ? <RxHamburgerMenu/> : <RxCross1/>}
           </div>
         </nav>
       </header>
