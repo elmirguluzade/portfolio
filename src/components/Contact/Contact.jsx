@@ -6,14 +6,12 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Contact.scss";
 
 const Contact = () => {
-  const formInitializeDetails = {
+  const [formDetails, setFormDetails] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
-  };
-
-  const [formDetails, setFormDetails] = useState(formInitializeDetails);
+  });
 
   const formUpdated = (field, value) => {
     setFormDetails({
@@ -43,7 +41,7 @@ const Contact = () => {
       return;
     }
     axios
-      .post("http://localhost:4000/contact", formDetails)
+      .post("http://localhost:5000/contact", formDetails)
       .then(() => {
         toast.success("Message sent. I will answer as soon as possible", {
           position: "top-right",

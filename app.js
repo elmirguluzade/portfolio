@@ -19,7 +19,7 @@ app.post("/contact", (req, res) => {
   const mailOptions = {
     from: {
       name: "Portfolio Visitor",
-      address: 'quluzadeelmir646@gmail.com'
+      address: "quluzadeelmir646@gmail.com",
     },
     to: "elmir.quluzade627@gmail.com",
     subject: `Message from portfolio`,
@@ -43,5 +43,5 @@ app.post("/contact", (req, res) => {
   });
 });
 
-const PORT = 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is listening in ${PORT}`));
