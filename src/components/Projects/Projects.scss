@@ -1,0 +1,43 @@
+#projects {
+  height: calc(100vh - 70px);
+  padding: 0 5%;
+
+  h2 {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  p {
+    text-align: center;
+    margin: 10px 0 30px 0;
+    a {
+      text-decoration: underline;
+    }
+  }
+  .project {
+    display: flex;
+    width: 70%;
+    gap: 25px;
+    margin: 20px auto;
+    img {
+      width: 400px;
+      height: 250px;
+    }
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+    .project{
+        flex-direction: column;
+
+        img{
+            width: 100% !important;
+            height: 300px !important;
+        }
+    }
+}
