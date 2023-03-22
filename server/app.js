@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.get('/phone', () => {
+app.get('/phone', (req, res) => {
     const data = fs.readFileSync('phone.json')
     res.json({
       success: true, 
