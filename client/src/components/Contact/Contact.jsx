@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import contactImg from "../../assets/img/contact-img.svg";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
@@ -12,11 +12,6 @@ const Contact = () => {
     phone: "",
     message: "",
   });
-
-  useEffect(() => {
-    axios.get('http://country.io/phone.json', {})
-    .then(response => console.log(response.json()))  
-  }, [])
 
   const validateEmail = (email) => {
     return String(email)

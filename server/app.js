@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const fs = require('fs')
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./config.env" });
 app.use(cors({origin:true,credentials: true}));
@@ -14,15 +13,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.MAIL_PASSWORD,
   },
 });
-
-
-app.get('/phone', (req, res) => {
-    const data = fs.readFileSync('phone.json')
-    res.json({
-      success: true, 
-      data
-    })
-})
 
 app.post("/contact", async (req, res) => {
   const { name, email, message, phone } = req.body;
