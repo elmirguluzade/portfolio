@@ -83,7 +83,11 @@
 @media (max-width: 768px) {
   #contact {
     background-color: #8bc6ec;
+    height: 100vh;
     background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .contact-img {
     display: none;

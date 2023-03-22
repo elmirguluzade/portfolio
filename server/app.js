@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const fs = require('fs')
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./config.env" });
 app.use(cors({origin:true,credentials: true}));
@@ -13,6 +14,15 @@ const transporter = nodemailer.createTransport({
     pass: process.env.MAIL_PASSWORD,
   },
 });
+
+
+app.get('/phone', () => {
+    const data = fs.readFileSync('phone.json')
+    res.json({
+      success: true, 
+      data
+    })
+})
 
 app.post("/contact", async (req, res) => {
   const { name, email, message, phone } = req.body;
@@ -52,16 +62,6 @@ app.post("/contact", async (req, res) => {
       }
     });
   });
-
-  // transporter.sendMail(mailOptions, (err, info) => {
-  //   if (err) {
-  //     console.error(err);
-  //     reject(err);
-  //   } else {
-  //     console.log("Email sent: " + info.response);
-  //     resolve(info);
-  //   }
-  // });
 
   res.json({
     status: true,
