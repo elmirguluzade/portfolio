@@ -43,5 +43,12 @@ app.post("/contact", (req, res) => {
   });
 });
 
+app.get("/api/test", (req, res) => {
+  res.json({
+    status: true,
+    message: "Working",
+  });
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is listening in ${PORT}`));
