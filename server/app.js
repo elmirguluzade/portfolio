@@ -14,7 +14,19 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/contact", (req, res) => {
+await new Promise((resolve, reject) => {
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+      reject(error);
+    } else {
+      console.log("Server is ready to take our messages");
+      resolve(success);
+    }
+  });
+});
+
+app.post("/contact", async (req, res) => {
   const { name, email, message, phone } = req.body;
   const mailOptions = {
     from: {
@@ -29,12 +41,17 @@ app.post("/contact", (req, res) => {
         <p><b>Message: ${message}</b></p>`,
   };
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
+  await new Promise((resolve, reject) => {
+    // send mail
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else {
+        console.log("Email sent: " + info.response);
+        resolve(info);
+      }
+    });
   });
 
   res.json({
@@ -48,7 +65,7 @@ app.get("/api/test", (req, res) => {
     status: true,
     message: "Working",
   });
-})
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is listening in ${PORT}`));
