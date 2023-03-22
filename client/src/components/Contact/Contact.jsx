@@ -59,7 +59,8 @@ const Contact = () => {
     }
     axios
       .post("https://elmirguluzade-api.vercel.app/contact", formDetails)
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         toast.success("Message sent. I will answer as soon as possible", {
           position: "top-right",
           autoClose: 800,
