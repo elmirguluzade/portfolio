@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./config.env" });
-app.use(cors({origin: "https://elmirguluzade.vercel.app"}));
+app.use(cors({origin:true,credentials: true}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -12,18 +12,6 @@ const transporter = nodemailer.createTransport({
     user: process.env.MAIL,
     pass: process.env.MAIL_PASSWORD,
   },
-});
-
-await new Promise((resolve, reject) => {
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-      reject(error);
-    } else {
-      console.log("Server is ready to take our messages");
-      resolve(success);
-    }
-  });
 });
 
 app.post("/contact", async (req, res) => {
@@ -42,6 +30,18 @@ app.post("/contact", async (req, res) => {
   };
 
   await new Promise((resolve, reject) => {
+    transporter.verify(function (error, success) {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        console.log("Server is ready to take our messages");
+        resolve(success);
+      }
+    });
+  });
+
+  await new Promise((resolve, reject) => {
     // send mail
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
@@ -53,6 +53,16 @@ app.post("/contact", async (req, res) => {
       }
     });
   });
+
+  // transporter.sendMail(mailOptions, (err, info) => {
+  //   if (err) {
+  //     console.error(err);
+  //     reject(err);
+  //   } else {
+  //     console.log("Email sent: " + info.response);
+  //     resolve(info);
+  //   }
+  // });
 
   res.json({
     status: true,

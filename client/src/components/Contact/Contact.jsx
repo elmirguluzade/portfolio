@@ -58,7 +58,7 @@ const Contact = () => {
       return
     }
     axios
-      .post("https://elmirguluzade-api.vercel.app/contact", formDetails)
+      .post("http://localhost:5000/contact", formDetails)
       .then((response) => {
         console.log(response);
         toast.success("Message sent. I will answer as soon as possible", {
