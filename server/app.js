@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./config.env" });
-app.use(cors());
+app.use(cors({origin: "https://elmirguluzade.vercel.app"}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
