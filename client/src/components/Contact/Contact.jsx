@@ -30,7 +30,12 @@ const Contact = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    if (!formDetails.email || !formDetails.message || !formDetails.phone || !formDetails.name) {
+    if (
+      !formDetails.email ||
+      !formDetails.message ||
+      !formDetails.phone ||
+      !formDetails.name
+    ) {
       toast.warning("Enter all fields", {
         position: "top-right",
         autoClose: 800,
@@ -43,8 +48,8 @@ const Contact = () => {
       });
       return;
     }
-    const isValid = validateEmail(formDetails.email)
-    if(!isValid) {
+    const isValid = validateEmail(formDetails.email);
+    if (!isValid) {
       toast.error("Email isn't correct form", {
         position: "top-right",
         autoClose: 800,
@@ -55,12 +60,12 @@ const Contact = () => {
         progress: undefined,
         theme: "light",
       });
-      return
+      return;
     }
     axios
       .post("https://elmirguluzade-api.vercel.app/contact", formDetails)
       .then((response) => {
-        console.log(response);
+        setFormDetails({ name: "", email: "", phone: "", message: "" });
         toast.success("Message sent. I will answer as soon as possible", {
           position: "top-right",
           autoClose: 800,
