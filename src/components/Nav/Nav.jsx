@@ -19,10 +19,8 @@ const Nav = () => {
 
   useEffect(() => {
     const burgerClick = (e) => {
-      console.log(e.target);
       setTimeout(() => {
         if (menu.current.className === "active" && e.target.tagName !== "svg" && e.target.tagName !== "path") {
-          console.log('clicked')
           menu.current.classList.add("hide");
           setHamOpened(false);
         }
