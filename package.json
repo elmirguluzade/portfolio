@@ -25,9 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "server": "nodemon app.js",
-    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "start": "concurrently \"npm run server\" \"react scripts start\"",
+    "server": "node app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,5 +48,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "app.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmirguluzade/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elmirguluzade/portfolio/issues"
+  },
+  "homepage": "https://github.com/elmirguluzade/portfolio#readme"
 }
