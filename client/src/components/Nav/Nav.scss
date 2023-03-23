@@ -1,7 +1,11 @@
 @use "../../assets/styles/variables" as var;
 
 header {
-  transition: all 0.7s linear;
+  transition: all 0.3s linear;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  top: 0;
 
   nav {
     display: flex;
@@ -83,11 +87,7 @@ header {
   }
 }
 .fixed {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
   background-color: var.$mainColor;
-  top: 0;
 }
 
 @media (max-width: 768px) {

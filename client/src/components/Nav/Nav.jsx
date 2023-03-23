@@ -11,7 +11,7 @@ const Nav = () => {
   const menu = useRef();
 
   const changeNavbarColor = () => {
-    window.scrollY > 1
+    window.scrollY > 0
       ? header.current.classList.add("fixed")
       : header.current.classList.remove("fixed");
   };

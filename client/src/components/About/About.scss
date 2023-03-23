@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   padding: 0 10%;
-  height: calc(100vh - 70px);
+  height: 100vh;
+  padding-top: 40px;
 
   .about-content {
     width: 50%;
@@ -34,10 +35,6 @@
       animation: updown 3s linear infinite;
     }
   }
-}
-
-.top{
-  height: 100vh !important;
 }
 
 @keyframes updown {

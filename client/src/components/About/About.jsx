@@ -18,11 +18,6 @@ const About = () => {
     return () => clearInterval(tick);
   }, [text]);
 
-  const changeNavbarColor = () => {
-    window.scrollY > 1 ? nav.current.classList.add('top') : nav.current.classList.remove('top') 
-  }
-  window.addEventListener('scroll', changeNavbarColor)
-
   const ticker = () => {
     if (count === rotate[rotateNum ? 0 : 1].length - 1) setIsExceed(true);
     if (count === 0) setIsExceed(false);
