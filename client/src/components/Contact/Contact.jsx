@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import contactImg from "../../assets/img/contact-img.svg";
 import { ToastContainer, toast } from "react-toastify";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import "./Contact.scss";
@@ -115,12 +117,13 @@ const Contact = () => {
               placeholder="Email"
             />
           </div>
-          <div className="input">
-            <input
-              type="text"
+          <div className="input input-fixer">
+            <PhoneInput
+              className="phoneInput"
+              country={"az"}
               value={formDetails.phone}
-              onChange={(e) => formUpdated("phone", e.target.value)}
-              placeholder="Phone number"
+              onChange={(e) => formUpdated("phone", "+" + e)}
+              placeholder={"Phone number"}
             />
           </div>
           <div className="input">

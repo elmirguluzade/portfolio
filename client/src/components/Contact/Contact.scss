@@ -66,6 +66,18 @@
       }
     }
   }
+
+  .phoneInput input{
+    padding-left: 45px !important;
+  }
+
+  .input-fixer{
+    text-align: left !important;
+  }
+
+  .country-name{
+    color: black;
+  }
 }
 
 @keyframes leftright {
