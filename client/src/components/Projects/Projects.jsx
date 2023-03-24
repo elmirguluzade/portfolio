@@ -27,9 +27,9 @@ const Projects = () => {
           <div>
             <p>
               This is the blog app which allows user to create and edit blog.
-              For creating user needs to sign up and then user can create blog
+              For creating blog user needs to sign up. Then user can create blog
               and edit created blogs. If user forgets his/her password, then
-              user can recover his/her password via email when used in sign up.
+              user can recover his/her password via email used when registering.
             </p>
             <p>
               Check source code:{" "}
