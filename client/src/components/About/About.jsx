@@ -43,7 +43,7 @@ const About = () => {
         </p>
       </div>
       <div className="about-image">
-        <img src={headerImg} alt="header" width={"300px"} />
+        <img src={headerImg} alt="header"/>
       </div>
     </section>
   );

@@ -149,3 +149,25 @@ header {
     }
   }
 }
+
+@media (min-width: 1300px) {
+  .logo h1 {
+    font-size: 40px !important;
+  }
+
+  .links li {
+    font-size: 24px !important;
+  }
+
+  .networks ul a {
+    font-size: 30px !important;
+  }
+
+  .contact {
+    font-size: 20px !important;
+  }
+
+  nav {
+    height: 80px !important;
+  }
+}
