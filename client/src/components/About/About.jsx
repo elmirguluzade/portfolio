@@ -38,7 +38,7 @@ const About = () => {
         <p>
           Are you looking for perfect website? Then you are in the right place.
           Get the results you are looking for and your work will be done in time
-          and with your requirements. I'm just a MERN Developer
+          with your requirements. I'm just a MERN Developer
           who wants to make useful products for people's daily life.
         </p>
       </div>
