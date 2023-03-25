@@ -15,6 +15,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [btnText, setBtnText] = useState("Send")
+
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -64,9 +66,10 @@ const Contact = () => {
       });
       return;
     }
+    setBtnText("Sending...")
     axios
       .post("https://elmirguluzade-api.vercel.app/contact", formDetails)
-      .then((response) => {
+      .then(() => {
         setFormDetails({ name: "", email: "", phone: "", message: "" });
         toast.success("Message sent. I will answer as soon as possible", {
           position: "top-right",
@@ -78,6 +81,7 @@ const Contact = () => {
           progress: undefined,
           theme: "light",
         });
+        setBtnText("Send")
       })
       .catch(() => {
         toast.error("Error occured. Please try again.", {
@@ -133,7 +137,11 @@ const Contact = () => {
               placeholder="Message"
             />
           </div>
-          <button type="submit">Send</button>
+          <button type="submit" 
+          disabled={btnText === "Send" ? false : true} 
+          style={{cursor: btnText === "Send" ? "pointer" :"not-allowed"}}>
+          {btnText}
+          </button>
         </form>
       </div>
       <ToastContainer />
