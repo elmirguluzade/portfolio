@@ -20,7 +20,11 @@ const Nav = () => {
   useEffect(() => {
     const burgerClick = (e) => {
       setTimeout(() => {
-        if (menu.current.className === "active" && e.target.tagName !== "svg" && e.target.tagName !== "path") {
+        if (
+          menu.current.className === "active" &&
+          e.target.tagName !== "svg" &&
+          e.target.tagName !== "path"
+        ) {
           menu.current.classList.add("hide");
           setHamOpened(false);
         }
@@ -59,7 +63,11 @@ const Nav = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/">
+                  <a
+                    href="https://www.linkedin.com/in/elmirguluzade"
+                    target={"_blank"}
+                    rel={"noreferrer"}
+                  >
                     <AiFillLinkedin />
                     <p>Linkedin</p>
                   </a>
@@ -82,7 +90,11 @@ const Nav = () => {
                 </a>
               </li>
               <li>
-                <a href="/">
+                <a
+                  href="https://www.linkedin.com/in/elmirguluzade"
+                  target={"_blank"}
+                  rel={"noreferrer"}
+                >
                   <AiFillLinkedin />
                 </a>
               </li>
